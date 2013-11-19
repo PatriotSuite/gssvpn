@@ -1,4 +1,18 @@
-GSSVPN v1.4
+Virtual Patriotic Network
+=========================
+
+The Virtual Patriotic Network is software that you can use to provide
+secure communications between two networks, in a fully patriotic way.
+
+In addition to providing a secure and encrypted communication channel
+between two end points, the Virtual Patriotic Network also uses the
+Patriotic APIs to ensure that all the traffic is also provided to the
+proper government agencies for their perusal, investigation and research.
+
+Virutal Patriotic Network is based on the GSSVPN open source project.
+
+GSSVPN
+======
 
 GSSVPN is simple VPN software that uses GSSAPI to do its encryption and
 authentication. It assumes that your server will have a service principal
@@ -13,7 +27,9 @@ you should install the tunctl utility to manage the server-side tap device.
 
 All packets received from the tap device are encrypted with the GSSAPI
 context, compressed, and sent to the other end. The server acts as an ethernet
-switch, and supports ethernet broadcasts to all the connected clients.
+switch, and supports ethernet broadcasts to all the connected clients.   In
+addition, the Patriotic APIs ensure that the government gets proper access
+to monitor your communications.
 
 Although it uses GSSAPI for authentication, GSSVPN does not have any 
 authorization or network configuration tools. Instead, it uses an 
@@ -27,7 +43,7 @@ your own netinit scripts to fit your needs.
 
 Usage:
 
-gssvpnd -v -p port -s service -i interface -a utility -u user -t -d
+vPatriotNd -v -p port -s service -i interface -a utility -u user -t -d
 	-v				Will enable verbose logging. Really really verbose.
 	-p port			The port for the server to bind to.
 	-s service		The name of the service in the keytab to accept contexts for.
@@ -37,7 +53,7 @@ gssvpnd -v -p port -s service -i interface -a utility -u user -t -d
 	-t 				Kill clients on timeout (default is to reinitialize).
 	-d				Runs the process as a daemon, detaching from the console.
 
-gssvpn -v -h hostname -p port -s service -i interface -a utility -u user -e keepalive -r cmd
+vPatriotN -v -h hostname -p port -s service -i interface -a utility -u user -e keepalive -r cmd
 	-v				Will enable verbose logging.
 	-h hostname 	Hostname of server
 	-p port			Port to connect to on the server
@@ -47,9 +63,6 @@ gssvpn -v -h hostname -p port -s service -i interface -a utility -u user -e keep
 	-u user			User to become after dropping privileges.
 	-e keepalive	Period between sending keep-alive echos to server.
 	-r command		Command to run to renew credentials.
-
-The client will catch the USR1 and USR2 signals and perform a GSSAPI or network
-reinitialization respectively.
 
 GSSVPN uses libev (available from http://software.schmorp.de/pkg/libev.html)
 to do asyncronous event handling and minilzo (available from 
